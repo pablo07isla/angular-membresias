@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-membresias"
+    }
+  },
+  "defaultProject": "angular-membresias",
+  "cli": {
+    "analytics": false
+  }
 }
