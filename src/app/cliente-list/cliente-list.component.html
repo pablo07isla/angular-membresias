@@ -1,0 +1,32 @@
+<div class="container">
+    <h3>Listado de Clientes</h3>
+    <br>
+    <div class="form-group">
+        <input class="form-control" type="text" placeholder="Buscar..." value="" name="filterCliente"
+            aria-label="Buscar" [(ngModel)]="filterCliente">
+    </div>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Nombre Completo</th>
+                <th scope="col">Telefono</th>
+                <th scope="col">Email</th>
+                <th scope="col">Empresa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let cliente of clientes |filter:filterCliente">
+                <td>{{cliente.idCliente}}</td>
+                <td>{{cliente.nombreApellTit}}</td>
+                <td>{{cliente.celular}}</td>
+                <td>{{cliente.email}}</td>
+                <td>{{cliente.nitEmpresa.razonSocial}}</td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
