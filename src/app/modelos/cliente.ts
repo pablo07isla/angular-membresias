@@ -1,5 +1,5 @@
 export class Cliente {
-  idCliente: string;
+  idCliente: number;
   nombreApellTit: string;
   celular: string;
   email: string;

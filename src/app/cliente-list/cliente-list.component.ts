@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cliente } from '../modelos/cliente';
 import { nitEmpresa } from '../modelos/nitEmpresa';
 import { ClienteService } from '../servicios/cliente.service';
@@ -12,7 +13,7 @@ export class ClienteListComponent implements OnInit {
   public empresas: any;
   filterCliente: '';
 
-  constructor(private clienteService: ClienteService) {}
+  constructor(private clienteService: ClienteService, private router: Router) {}
 
   ngOnInit(): void {
     this.getEmpleados();
@@ -23,5 +24,9 @@ export class ClienteListComponent implements OnInit {
       this.clientes = data;
       console.log(data);
     });
+  }
+
+  clienteDescription(id: number) {
+    this.router.navigate(['cliente', id]);
   }
 }

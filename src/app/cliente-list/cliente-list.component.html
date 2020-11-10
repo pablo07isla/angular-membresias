@@ -15,6 +15,8 @@
                 <th scope="col">Telefono</th>
                 <th scope="col">Email</th>
                 <th scope="col">Empresa</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Acción</th>
             </tr>
         </thead>
         <tbody>
@@ -24,6 +26,9 @@
                 <td>{{cliente.celular}}</td>
                 <td>{{cliente.email}}</td>
                 <td>{{cliente.nitEmpresa.razonSocial}}</td>
+                <td>
+                    <button (click)="clienteDescription(cliente.idCliente)" class="btn btn-info">Descripcion</button>
+                </td>
             </tr>
 
 
