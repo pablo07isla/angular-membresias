@@ -1,34 +1,54 @@
 <form>
     <div class="form-group">
         <label for="nombreApellido">Nombre y Apellido</label>
-        <input type="text" class="form-control no-border" id="nombreApellido" aria-describedby="emailHelp"
-            placeholder="">
+        <input type="text" class="form-control no-border" id="nombreApellido" [(ngModel)]="cliente.nombreApellTit"
+            name="nombreApellido">
 
     </div>
     <div class="form-group">
         <label for="numeroId">N° Identificacion</label>
-        <input type="text" class="form-control no-border" id="numeroId">
+        <input type="text" class="form-control no-border" id="numeroId" [(ngModel)]="cliente.idCliente" name="numeroId">
 
 
     </div>
     <div class="form-group">
         <label for="celular">Celular</label>
-        <input type="text" class="form-control no-border" id="celular">
+        <input type="text" class="form-control no-border" id="celular" [(ngModel)]="cliente.celular" name="celular">
 
     </div>
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="text" class="form-control no-border" id="email">
+        <input type="text" class="form-control no-border" id="email" [(ngModel)]="cliente.email" name="email">
 
     </div>
 
     <div class="form-group">
         <label for="empresa">Empresa</label>
-        <input type="text" class="form-control no-border" id="empresa">
-
+        <input type="text" class="form-control no-border" id="empresa" [(ngModel)]="cliente.nitEmpresa.razonSocial"
+            name="empresa">
     </div>
-
-
-
-    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<h6>Beneficiarios</h6>
+
+<br>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Nombre Completo</th>
+            <th scope="col">Id</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let e of cliente.listBeneficiarios">
+            <td>{{e.nom_apell_benef}}</td>
+            <td>{{e.idBenef}}</td>
+
+        </tr>
+    </tbody>
+</table>
+
+
+
+
+<button type="submit" class="btn btn-primary">Submit</button>
