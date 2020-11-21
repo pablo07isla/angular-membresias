@@ -1,0 +1,33 @@
+<div class="col-md-6 offset-md-3">
+    <h4>Agregar Visita</h4>
+    <form (ngSubmit)="onSubmit()">
+
+        <div class="form-group">
+            <label for="idCliente">N° Identificacion Titular</label>
+            <input type="number" class="form-control" id="idCliente" placeholder="{{cliente.idCliente}}"
+                ng-init="fechaVisita.idCliente='cliente.idCliente'" [(ngModel)]="fechaVisita.idCliente"
+                name="idCliente">
+        </div>
+
+        <div class="form-group">
+            <label for="titular">Titular</label>
+            <input type="text" class="form-control bold" id="titular" [(ngModel)]="cliente.nombreApellTit"
+                name="titular">
+        </div>
+
+        <div class="form-group">
+            <label for="fechaVisita">Fecha Visita</label>
+            <input type="datetime-local" class="form-control " id="fechaVisita" value="today"
+                [(ngModel)]="fechaVisita.fechaVisita" name="fechaVisita">
+        </div>
+
+        <div class="form-group">
+            <label for="numAcomp">N° de Acompañantes</label>
+            <input type="number" class="form-control" id="numAcomp" [(ngModel)]="fechaVisita.numAcomp" name="numAcomp">
+        </div>
+
+
+        <button class="btn btn-success btn-sm float-right" type="submit">Agregar Visita</button>
+    </form>
+    <br>
+</div>

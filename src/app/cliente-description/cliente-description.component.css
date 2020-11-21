@@ -1,3 +1,15 @@
 .no-border {
   border: 0px;
 }
+
+.bold {
+  font: bold 18px Verdana, sans-serif;
+}
+
+.inpu {
+  font-weight: 500;
+}
+
+.hForm {
+  height: 50px;
+}

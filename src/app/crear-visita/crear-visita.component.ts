@@ -1,22 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Cliente } from '../modelos/cliente';
+import { FechaVisita } from '../modelos/fechaVisita';
 import { ClienteService } from '../servicios/cliente.service';
-import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-cliente-description',
-  templateUrl: './cliente-description.component.html',
-  styleUrls: ['./cliente-description.component.css'],
+  selector: 'app-crear-visita',
+  templateUrl: './crear-visita.component.html',
+  styleUrls: ['./crear-visita.component.css'],
 })
-export class ClienteDescriptionComponent implements OnInit {
+export class CrearVisitaComponent implements OnInit {
   id: number;
   cliente: Cliente = new Cliente();
+  fechaVisita: FechaVisita = new FechaVisita();
+  idCliente: number;
 
   constructor(
     private clienteservice: ClienteService,
-    private route: ActivatedRoute,
-    private router: Router
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +30,8 @@ export class ClienteDescriptionComponent implements OnInit {
       (error) => console.log(error)
     );
   }
-  crearVisita(id: number) {
-    this.router.navigate(['crear-visita', id]);
+
+  onSubmit() {
+    console.log(this.fechaVisita);
   }
 }
