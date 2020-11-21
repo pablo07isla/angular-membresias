@@ -14,6 +14,7 @@ export class CrearVisitaComponent implements OnInit {
   cliente: Cliente = new Cliente();
   fechaVisita: FechaVisita = new FechaVisita();
   idCliente: number;
+  fechaHoy: number;
 
   constructor(
     private clienteservice: ClienteService,
@@ -25,6 +26,8 @@ export class CrearVisitaComponent implements OnInit {
     this.clienteservice.getClientById(this.id).subscribe(
       (data) => {
         this.cliente = data;
+        this.idCliente = this.cliente.idCliente;
+        this.fechaHoy = Date.now();
         console.log(data);
       },
       (error) => console.log(error)
@@ -32,6 +35,8 @@ export class CrearVisitaComponent implements OnInit {
   }
 
   onSubmit() {
+    this.fechaVisita.idCliente = this.cliente.idCliente;
+    this.fechaVisita.fechaVisita = this.fechaHoy;
     console.log(this.fechaVisita);
   }
 }

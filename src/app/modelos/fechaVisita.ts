@@ -1,5 +1,5 @@
 export class FechaVisita {
-  idCliente: string;
-  fechaVisita: string;
+  idCliente: number;
+  fechaVisita: number;
   numAcomp: number;
 }
