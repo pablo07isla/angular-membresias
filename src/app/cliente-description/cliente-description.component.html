@@ -1,84 +1,105 @@
 <div class="col-md-6 offset-md-3">
-    <h4>Detalle Cliente</h4>
-    <form>
-        <div class="form-group">
-            <label for="nombreApellido">Nombre y Apellido</label>
-            <input type="text" class="form-control bold " id="nombreApellido" [(ngModel)]="cliente.nombreApellTit"
-                name="nombreApellido">
+  <h4>Detalle Cliente</h4>
+  <form>
+    <div class="form-group">
+      <label for="nombreApellido">Nombre y Apellido</label>
+      <input
+        type="text"
+        class="form-control bold"
+        id="nombreApellido"
+        [(ngModel)]="cliente.nombreApellTit"
+        name="nombreApellido"
+      />
+    </div>
+    <div class="form-group">
+      <label for="numeroId">N° Identificacion</label>
+      <input
+        type="text"
+        class="form-control no-border inpu"
+        id="numeroId"
+        [(ngModel)]="cliente.idCliente"
+        name="numeroId"
+      />
+    </div>
+    <div class="form-group">
+      <label for="celular">Celular</label>
+      <input
+        type="text"
+        class="form-control no-border inpu"
+        id="celular"
+        [(ngModel)]="cliente.celular"
+        name="celular"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control no-border inpu"
+        id="email"
+        [(ngModel)]="cliente.email"
+        name="email"
+      />
+    </div>
 
-        </div>
-        <div class="form-group">
-            <label for="numeroId">N° Identificacion</label>
-            <input type="text" class="form-control no-border inpu" id="numeroId" [(ngModel)]="cliente.idCliente"
-                name="numeroId">
+    <div class="form-group">
+      <label for="empresa">Empresa</label>
+      <input
+        type="text"
+        class="form-control no-border inpu"
+        id="empresa"
+        [(ngModel)]="cliente.nitEmpresa.razonSocial"
+        name="empresa"
+      />
+    </div>
+  </form>
 
+  <br />
 
-        </div>
-        <div class="form-group">
-            <label for="celular">Celular</label>
-            <input type="text" class="form-control no-border inpu" id="celular" [(ngModel)]="cliente.celular"
-                name="celular">
+  <h6>Beneficiarios</h6>
 
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input type="text" class="form-control no-border inpu" id="email" [(ngModel)]="cliente.email" name="email">
+  <table class="table table-striped no-border">
+    <thead>
+      <tr>
+        <th scope="col">Nombre Completo</th>
+        <th scope="col">Id</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let e of cliente.listBeneficiarios">
+        <td>{{ e.nom_apell_benef }}</td>
+        <td>{{ e.idBenef }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-primary btn-sm float-right">
+    Submit
+  </button>
 
-        </div>
+  <br />
+  <br />
+  <h6>Visitas</h6>
 
-        <div class="form-group">
-            <label for="empresa">Empresa</label>
-            <input type="text" class="form-control no-border inpu" id="empresa"
-                [(ngModel)]="cliente.nitEmpresa.razonSocial" name="empresa">
-        </div>
-    </form>
-
-    <br>
-
-    <h6>Beneficiarios</h6>
-
-
-    <table class="table table-striped no-border">
-        <thead>
-            <tr>
-                <th scope="col">Nombre Completo</th>
-                <th scope="col">Id</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let e of cliente.listBeneficiarios">
-                <td>{{e.nom_apell_benef}}</td>
-                <td>{{e.idBenef}}</td>
-
-            </tr>
-        </tbody>
-    </table>
-    <button type="submit" class="btn btn-primary btn-sm float-right">Submit</button>
-
-    <br>
-    <br>
-    <h6>Visitas</h6>
-
-    <table class="table table-striped">
-        <thead>
-            <tr>
-
-                <th scope="col">Fecha de Visita</th>
-                <th scope="col">N° Acompañantes</th>
-
-
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let b of cliente.listFechasVisita">
-                <td>{{b.fechaVisita | date:'fullDate'}}</td>
-                <td>{{b.cantidadAcomp}}</td>
-
-
-            </tr>
-        </tbody>
-    </table>
-    <button (click)="crearVisita(cliente.idCliente)" class="btn btn-primary btn-sm float-right">+ Visita</button>
-    <br>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Fecha de Visita</th>
+        <th scope="col">N° Acompañantes</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of cliente.listFechasVisita">
+        <td>{{ b.fechaVisita | date: "fullDate" }}</td>
+        <td>{{ b.cantidadAcomp }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <button
+    (click)="crearVisita(cliente.idCliente)"
+    class="btn btn-primary btn-sm float-right"
+  >
+    + Visita
+  </button>
+  <br />
 </div>
